@@ -1,0 +1,46 @@
+﻿@model PriceQuoteAppModel
+@{
+    ViewBag.Title = "Price Quotation";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+</head>
+<body>
+    <div class="row">
+
+            <form asp-action="Index" method="post" class="form-horizontal">
+                <div asp-validation-summary="All"></div>
+                <div class="form-group">
+                    <label asp-for="SubTotal">Subtotal:</label>
+                    <div>
+
+                    </div>
+                    <input asp-for="SubTotal" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="DiscountPercent">Discount Percent:</label>
+                    <div>
+
+                    </div>
+                    <input asp-for="DiscountPercent" />
+                </div>
+                <div class="form-group">
+                    <label>Discount amount:</label>
+                    <span >@Model.DiscountAmount</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Total:</label>
+
+                    <span >@Model.Total</span>
+                </div>
+                <button type="submit">Calculate</button>
+                <a asp-action="Index">Clear</a>
+            </form>
+
+    </div>
+</body>
+</html>
