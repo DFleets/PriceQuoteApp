@@ -2,45 +2,36 @@
 @{
     ViewBag.Title = "Price Quotation";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-
-</head>
-<body>
-    <div class="row">
-
+<div class=" container">
+    <header class="jumbotron"> 
+        <h1 class="mt-3"style="color:darkblue">@ViewBag.Title</h1>
+   </header>
+    <main class="container">    
             <form asp-action="Index" method="post" class="form-horizontal">
-                <div asp-validation-summary="All"></div>
-                <div class="form-group">
-                    <label asp-for="SubTotal">Subtotal:</label>
-                    <div>
-
+                
+                    <div class="row">
+                        <label asp-for="SubTotal" class="control-label col-sm-3">Subtotal:</label>                      
+                        <input asp-for="SubTotal" class="form-control col-sm-3" />
+                        <span asp-validation-for="SubTotal" class="text-danger col"></span>
                     </div>
-                    <input asp-for="SubTotal" />
-                </div>
-                <div class="form-group">
-                    <label asp-for="DiscountPercent">Discount Percent:</label>
-                    <div>
-
+                    <div class="row">
+                        <label asp-for="DiscountPercent" class="control-label col-sm-3">Discount Percent:</label>
+                        <input asp-for="DiscountPercent" class="form-control col-sm-3" />
+                        <span asp-validation-for="DiscountPercent" class="text-danger col"></span>
                     </div>
-                    <input asp-for="DiscountPercent" />
-                </div>
-                <div class="form-group">
-                    <label>Discount amount:</label>
-                    <span >@Model.DiscountAmount</span>
+                
+                <div class="row">
+                    <label class="control-label col-sm-3">Discount amount:</label>
+                    <span class="form-control col-sm-3">@Model.DiscountAmount</span>
                 </div>
 
-                <div class="form-group">
-                    <label>Total:</label>
+                <div class="row">
+                    <label class="control-label col-sm-3" >Total:</label>
 
-                    <span >@Model.Total</span>
+                    <span class="form-control col-sm-3">@Model.Total</span>
                 </div>
                 <button type="submit">Calculate</button>
                 <a asp-action="Index">Clear</a>
-            </form>
-
-    </div>
-</body>
-</html>
+            </form>      
+    </main>
+</div>
