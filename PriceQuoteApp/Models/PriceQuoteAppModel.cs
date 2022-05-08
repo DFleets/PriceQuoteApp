@@ -9,18 +9,19 @@ namespace PriceQuoteApp.Models
     public class PriceQuoteAppModel
     {
         
-        [Range(0, int.MaxValue)]
-        [Required(ErrorMessage = "Must be a valid number greater than 0")]
+        [Range(1, int.MaxValue, ErrorMessage = "Must be a valid number greater than 0")]
+        [Required(ErrorMessage = "Must not be 0")]
         public decimal? SubTotal { get; set; }
 
         
-        [Range(0, 100)]
-        [Required(ErrorMessage = "Must be a valid number between 0 to 100")]
+        [Range(0, 100, ErrorMessage = "Must be a valid number between 0 to 100")]
+        [Required(ErrorMessage = "Enter a valid number")]
         public decimal? DiscountPercent { get; set; }
 
+        [Display(Name = "Discount Amount")]
         public decimal? DiscountAmount { get; set; }
 
-       
+        [Display(Name = "Total")]
         public decimal? Total { get; set; }
 
     }
